@@ -2,19 +2,19 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import keystatic from '@keystatic/astro';
+import vercel from '@astrojs/vercel';
 import { readFileSync } from 'node:fs';
 
 // Redirections des anciennes adresses WordPress (générées par l'import)
 const redirectionsWp = JSON.parse(readFileSync(new URL('./src/redirections-wp.json', import.meta.url), 'utf-8'));
 
-// L'administration Keystatic (/keystatic) n'est chargée qu'en local (`npm run dev`).
-// Le site publié (`npm run build`) est 100 % statique : rien à héberger côté serveur.
-const enDev = process.argv.includes('dev');
-
 export default defineConfig({
   site: 'https://isa-m-ladeco.fr',
+  // Les pages du site restent statiques (pré-générées) ; seule l'admin Keystatic
+  // (/keystatic et /api/keystatic) tourne côté serveur, via l'adaptateur Vercel.
   output: 'static',
-  integrations: enDev ? [react(), keystatic()] : [],
+  adapter: vercel(),
+  integrations: [react(), keystatic()],
   // Les URLs de l'ancien WordPress → nouvelles pages
   redirects: {
     ...redirectionsWp,

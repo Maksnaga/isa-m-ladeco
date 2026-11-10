@@ -1,7 +1,9 @@
 // Configuration du CMS Keystatic.
-// L'interface d'administration est disponible en local sur http://127.0.0.1:4321/keystatic
-// quand on lance `npm run dev`. Tout le contenu est enregistré dans le dossier `content/`
-// et les photos dans `public/images/` : aucune plateforme en ligne.
+// - En local (`npm run dev`) : http://127.0.0.1:4321/keystatic, modifications écrites
+//   directement dans les fichiers du projet.
+// - En ligne (Vercel) : https://<site>/keystatic, connexion avec un compte GitHub ;
+//   chaque enregistrement crée un commit sur le dépôt, et Vercel republie le site.
+// Contenu dans `content/`, photos dans `public/images/`.
 import { config, collection, singleton, fields } from '@keystatic/core';
 
 const photo = (label: string, dossier: string, description?: string) =>
@@ -22,7 +24,9 @@ const photo = (label: string, dossier: string, description?: string) =>
   );
 
 export default config({
-  storage: { kind: 'local' },
+  storage: import.meta.env.PROD
+    ? { kind: 'github', repo: 'Maksnaga/isa-m-ladeco' }
+    : { kind: 'local' },
   ui: {
     brand: { name: 'Isa M la Déco' },
     navigation: {

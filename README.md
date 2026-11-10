@@ -29,9 +29,9 @@ content/reglages.yaml
 public/images/...             les photos envoyées depuis l'admin
 ```
 
-Après des modifications : `npm run build`, puis mettre en ligne le dossier `dist/`.
+Après des modifications en local : commit + push sur GitHub, Vercel republie automatiquement.
 
-L'admin n'existe qu'en local : le site publié est entièrement statique (pas de serveur, pas de base de données). Si un jour Isabelle doit modifier le site elle-même depuis chez elle, Keystatic propose un mode GitHub (voir keystatic.com/docs/github-mode).
+En ligne, l'admin est aussi disponible sur https://isa-m-ladeco.vercel.app/keystatic (mode GitHub : connexion avec un compte GitHub ayant accès au dépôt ; chaque enregistrement crée un commit et Vercel republie le site). Variables d'environnement Vercel nécessaires : `KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`, `KEYSTATIC_SECRET`, `PUBLIC_KEYSTATIC_GITHUB_APP_SLUG`.
 
 ## Structure
 
