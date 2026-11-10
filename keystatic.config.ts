@@ -1,7 +1,8 @@
 // Configuration du CMS Keystatic.
 // - En local (`npm run dev`) : http://127.0.0.1:4321/keystatic, modifications écrites
 //   directement dans les fichiers du projet.
-// - En ligne (Vercel) : https://<site>/keystatic, connexion avec un compte GitHub ;
+// - En ligne (Vercel) : https://<site>/keystatic, connexion via Keystatic Cloud
+//   (pas besoin de compte GitHub, invitations sur keystatic.cloud, équipe isa-m-ladeco) ;
 //   chaque enregistrement crée un commit sur le dépôt, et Vercel republie le site.
 // Contenu dans `content/`, photos dans `public/images/`.
 import { config, collection, singleton, fields } from '@keystatic/core';
@@ -25,8 +26,9 @@ const photo = (label: string, dossier: string, description?: string) =>
 
 export default config({
   storage: import.meta.env.PROD
-    ? { kind: 'github', repo: 'Maksnaga/isa-m-ladeco' }
+    ? { kind: 'cloud' }
     : { kind: 'local' },
+  cloud: { project: 'isa-m-ladeco/isa-m-ladeco' },
   ui: {
     brand: { name: 'Isa M la Déco' },
     navigation: {

@@ -31,7 +31,7 @@ public/images/...             les photos envoyées depuis l'admin
 
 Après des modifications en local : commit + push sur GitHub, Vercel republie automatiquement.
 
-En ligne, l'admin est aussi disponible sur https://isa-m-ladeco.vercel.app/keystatic (mode GitHub : connexion avec un compte GitHub ayant accès au dépôt ; chaque enregistrement crée un commit et Vercel republie le site). Variables d'environnement Vercel nécessaires : `KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`, `KEYSTATIC_SECRET`, `PUBLIC_KEYSTATIC_GITHUB_APP_SLUG`.
+En ligne, l'admin est aussi disponible sur https://isa-m-ladeco.vercel.app/keystatic via **Keystatic Cloud** (équipe/projet `isa-m-ladeco/isa-m-ladeco` sur keystatic.cloud) : les personnes invitées dans l'équipe se connectent sans compte GitHub. Chaque enregistrement crée un commit et Vercel republie le site.
 
 ## Structure
 
