@@ -1,33 +1,56 @@
 accroche: Des intérieurs qui ont du caractère
 sousAccroche: >-
   Je vous accompagne dans vos projets de rénovation et de décoration intérieure,
-  du simple conseil jusqu’au suivi des travaux. Et je redonne une seconde vie à vos meubles anciens.
+  du simple conseil jusqu’au suivi des travaux. Et je redonne une seconde vie à
+  vos meubles anciens.
 heroImage: {}
 portrait:
   image: /images/site/portrait/image.jpg
-  alt: Isabelle Moiroux, décoratrice d’intérieur
-apropos: |-
-  Mon cabinet de décoration intérieure est établi dans les Hauts-de-France, à Lille. Mon secteur s’étend sur la côte d’Opale, au Touquet, et en Normandie, au Havre. J’évolue avec passion depuis quelques années dans la décoration d’intérieur mais aussi dans l’agencement des espaces.
+  alt: Isabelle Moiroux, décoratrice d’intérieurr
+apropos: >-
+  Mon cabinet de décoration intérieure est établi dans les Hauts-de-France, à
+  Lille. Mon secteur s’étend sur la côte d’Opale, au Touquet, et en Normandie,
+  au Havre. J’évolue avec passion depuis quelques années dans la décoration
+  d’intérieur mais aussi dans l’agencement des espaces.
 
-  Je vous accompagne dans tous vos projets de rénovation et de création d’intérieur, du simple échange de conseils jusqu’à la conception de plans en 3D. Ma mission peut s’effectuer sur un temps court pour un conseil à domicile jusqu’à une enveloppe globale de votre projet comprenant la réalisation et le suivi des travaux.
 
-  Je vous apporte, selon votre demande, mon réseau d’artisans avec qui le professionnalisme a été vérifié lors de collaborations antérieures : un très bon moyen pour vous d’éviter des déconvenues lors des travaux et le souci des estimations et négociations de devis.
+  Je vous accompagne dans tous vos projets de rénovation et de création
+  d’intérieur, du simple échange de conseils jusqu’à la conception de plans en
+  3D. Ma mission peut s’effectuer sur un temps court pour un conseil à domicile
+  jusqu’à une enveloppe globale de votre projet comprenant la réalisation et le
+  suivi des travaux.
 
-  Mes compétences s’appuient sur une maîtrise des tendances, outils et réglementations professionnelles. Une très fine écoute de vos aspirations me permettra de vous proposer un projet sur mesure, à la hauteur de vos attentes. Vous retrouverez dans notre collaboration : modernité, fonctionnalité et optimisation de votre espace.
 
-  Une autre facette de mon métier, c’est le relooking de meubles anciens. J’adore chiner et découvrir des pièces atypiques dans des styles très variés. Je les transforme afin de leur redonner une seconde vie et ainsi livrer des créations sur mesure qui s’adaptent aux goûts de mes clients. Je propose mes créations mais je peux aussi transformer vos propres meubles de famille, que vous affectionnez tant, mais qui ne s’accordent plus avec la décoration d’aujourd’hui. Vos vieux meubles ne méritent pas d’être abandonnés au profit d’autres fabriqués à l’autre bout du monde.
+  Je vous apporte, selon votre demande, mon réseau d’artisans avec qui le
+  professionnalisme a été vérifié lors de collaborations antérieures : un très
+  bon moyen pour vous d’éviter des déconvenues lors des travaux et le souci des
+  estimations et négociations de devis.
+
+
+  Mes compétences s’appuient sur une maîtrise des tendances, outils et
+  réglementations professionnelles. Une très fine écoute de vos aspirations me
+  permettra de vous proposer un projet sur mesure, à la hauteur de vos attentes.
+  Vous retrouverez dans notre collaboration : modernité, fonctionnalité et
+  optimisation de votre espace.
+
+
+  Une autre facette de mon métier, c’est le relooking de meubles anciens.
+  J’adore chiner et découvrir des pièces atypiques dans des styles très variés.
+  Je les transforme afin de leur redonner une seconde vie et ainsi livrer des
+  créations sur mesure qui s’adaptent aux goûts de mes clients. Je propose mes
+  créations mais je peux aussi transformer vos propres meubles de famille, que
+  vous affectionnez tant, mais qui ne s’accordent plus avec la décoration
+  d’aujourd’hui. Vos vieux meubles ne méritent pas d’être abandonnés au profit
+  d’autres fabriqués à l’autre bout du monde.
 telephone: 06 85 27 45 16
 email: isabdeco59@gmail.com
-instagram: ''
 zones:
   - Lille et sa métropole
   - Le Touquet et la côte d’Opale
   - Le Havre et la Normandie
-formEndpoint: ''
 presse:
   - media: ELLE
     titre: Mon article dans le magazine ELLE (septembre 2021)
-    url: ''
   - media: Maison Presta
     titre: Mon partenariat avec la plateforme Maison Presta
     url: https://www.maisonpresta.fr
