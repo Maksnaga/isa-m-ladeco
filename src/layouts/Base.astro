@@ -1,0 +1,233 @@
+---
+import '../styles/global.css';
+import { estDemo, getSettings } from '../lib/content';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+const s = await getSettings();
+const isDemo = await estDemo();
+const { title, description = s.sousAccroche, image = s.heroImage.url } = Astro.props;
+const fullTitle = title ? `${title} | Isa M la Déco` : 'Isa M la Déco | Décoratrice d’intérieur à Lille';
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const path = Astro.url.pathname;
+
+const nav = [
+  { href: '/realisations', label: 'Réalisations' },
+  { href: '/prestations', label: 'Prestations et tarifs' },
+  { href: '/a-propos', label: 'Qui suis-je' },
+  { href: '/contact', label: 'Contact' },
+];
+const tel = s.telephone?.replace(/\s/g, '');
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'InteriorDesigner',
+  name: 'Isa M la Déco',
+  founder: 'Isabelle Moiroux',
+  url: Astro.site?.toString(),
+  email: s.email,
+  telephone: s.telephone,
+  address: { '@type': 'PostalAddress', addressLocality: 'Lille', addressCountry: 'FR' },
+  areaServed: ['Lille', 'Le Touquet-Paris-Plage', 'Le Havre'],
+};
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    {image && <meta property="og:image" content={image} />}
+    <meta name="theme-color" content="#fff8f1" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip" href="#contenu">Aller au contenu</a>
+    {isDemo && <p class="demo">Version de démonstration : réalisations et photos provisoires.</p>}
+
+    <header class="tete" data-tete>
+      <div class="wrap tete__in">
+        <a href="/" class="logo" aria-label="Isa M la Déco, accueil">
+          <span class="logo__carre" aria-hidden="true"></span>
+          <span class="logo__nom">Isa M <span>la Déco</span></span>
+        </a>
+        <nav id="menu" aria-label="Menu principal">
+          <ul>
+            {nav.map((n) => (
+              <li><a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a></li>
+            ))}
+          </ul>
+        </nav>
+        <a href="/contact" class="btn tete__cta">Prendre rendez-vous</a>
+        <button class="menu-btn" aria-expanded="false" aria-controls="menu" data-menu>
+          <span class="sr-only">Ouvrir le menu</span><i></i><i></i>
+        </button>
+      </div>
+    </header>
+
+    <main id="contenu"><slot /></main>
+
+    <footer class="pied">
+      <div class="wrap pied__in">
+        <div class="pied__gros">
+          <p class="pied__titre">Un projet&nbsp;? Parlons-en&nbsp;!</p>
+          <div class="actions">
+            <a href="/contact" class="btn btn--jaune">Prendre rendez-vous</a>
+            {s.telephone && <a href={`tel:${tel}`} class="btn btn--contour">{s.telephone}</a>}
+          </div>
+        </div>
+        <div class="pied__cols">
+          <div>
+            <p class="pied__t">Isa M la Déco</p>
+            <p>Isabelle Moiroux, décoratrice d’intérieur à Lille.</p>
+          </div>
+          <div>
+            <p class="pied__t">J’interviens à</p>
+            <ul>{s.zones.map((z) => <li>{z}</li>)}</ul>
+          </div>
+          <div>
+            <p class="pied__t">Contact</p>
+            <ul>
+              {s.telephone && <li><a href={`tel:${tel}`}>{s.telephone}</a></li>}
+              {s.email && <li><a href={`mailto:${s.email}`}>{s.email}</a></li>}
+              {s.instagram && <li><a href={s.instagram} rel="noopener">Instagram</a></li>}
+            </ul>
+          </div>
+          <div>
+            <p class="pied__t">Le site</p>
+            <ul>{nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}</ul>
+          </div>
+        </div>
+        <p class="pied__legal">© {new Date().getFullYear()} Isa M la Déco</p>
+      </div>
+    </footer>
+
+    <div class="barre-mobile">
+      {tel ? <a href={`tel:${tel}`} class="btn btn--second">Appeler</a> : s.email && <a href={`mailto:${s.email}`} class="btn btn--second">E-mail</a>}
+      <a href="/contact" class="btn">Rendez-vous</a>
+    </div>
+
+    <script>
+      // Apparitions au défilement
+      const io = new IntersectionObserver(
+        (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('vu'); io.unobserve(e.target); } }),
+        { rootMargin: '0px 0px -10% 0px' }
+      );
+      document.querySelectorAll('.apparait, .pop').forEach((el) => io.observe(el));
+
+      // En-tête : se resserre au défilement
+      const tete = document.querySelector('[data-tete]');
+      const onScroll = () => tete?.classList.toggle('serre', scrollY > 30);
+      addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // Menu mobile
+      const btn = document.querySelector('[data-menu]');
+      btn?.addEventListener('click', () => {
+        const open = btn.getAttribute('aria-expanded') !== 'true';
+        btn.setAttribute('aria-expanded', String(open));
+        document.body.classList.toggle('menu-ouvert', open);
+      });
+    </script>
+
+    <style>
+      .demo { margin: 0; padding: 0.45rem var(--gutter); background: var(--encre); color: #e9dccb; font-size: var(--t-sm); text-align: center; }
+
+      .tete { position: sticky; top: 0; z-index: 50; transition: background 0.3s, box-shadow 0.3s; }
+      .tete.serre { background: rgb(255 248 241 / 0.92); backdrop-filter: blur(10px); box-shadow: 0 2px 0 var(--encre); }
+      .tete__in { display: flex; align-items: center; gap: 2rem; min-height: 5rem; transition: min-height 0.3s; }
+      .tete.serre .tete__in { min-height: 4.2rem; }
+
+      .logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; margin-right: auto; }
+      .logo__carre { width: 0.85rem; height: 0.85rem; background: var(--orange); transition: transform 0.4s var(--ressort); }
+      .logo:hover .logo__carre { transform: rotate(45deg); }
+      .logo__nom { font-weight: 700; font-size: 1.4rem; letter-spacing: -0.03em; font-variation-settings: 'opsz' 96; }
+      .logo__nom span { font-weight: 500; }
+
+      nav ul { display: flex; gap: 0.4rem; list-style: none; margin: 0; padding: 0; }
+      nav a { display: block; padding: 0.45rem 0.85rem; border-radius: 3px; text-decoration: none; font-weight: 600; transition: background 0.2s; }
+      nav a:hover { background: var(--jaune); }
+      nav a[aria-current] { background: none; color: var(--encre); box-shadow: inset 0 -2px 0 var(--orange); border-radius: 0; }
+      .tete__cta { min-height: 2.9rem; padding: 0.55rem 1.2rem; }
+      .menu-btn { display: none; }
+
+      @media (max-width: 980px) {
+        .tete__cta { display: none; }
+        .menu-btn {
+          display: grid;
+          gap: 6px;
+          place-content: center;
+          width: 3rem;
+          height: 3rem;
+          border-radius: 3px;
+          border: 1px solid var(--bord);
+          background: var(--fond);
+          cursor: pointer;
+          position: relative;
+          z-index: 60;
+        }
+        .menu-btn i { display: block; width: 18px; height: 2px; background: var(--encre); transition: transform 0.3s var(--ressort); }
+        :global(.menu-ouvert) .menu-btn i:first-of-type { transform: translateY(4px) rotate(45deg); }
+        :global(.menu-ouvert) .menu-btn i:last-of-type { transform: translateY(-4px) rotate(-45deg); }
+        nav {
+          position: fixed;
+          inset: 0;
+          z-index: 55;
+          background: var(--fond);
+          display: grid;
+          place-items: center;
+          clip-path: circle(0 at calc(100% - 2.75rem) 2.5rem);
+          transition: clip-path 0.6s var(--doux-ease);
+        }
+        :global(.menu-ouvert) nav { clip-path: circle(150% at calc(100% - 2.75rem) 2.5rem); }
+        nav ul { flex-direction: column; align-items: center; gap: 0.6rem; }
+        nav a { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
+        nav a[aria-current] { background: var(--fond); color: var(--encre); }
+      }
+
+      .pied { position: relative; background: var(--encre); color: var(--fond); margin-top: calc(var(--section) + 3rem); padding-block: clamp(4rem, 8vw, 6rem) 6.5rem; }
+      .pied a:not(.btn) { color: var(--fond); text-decoration-color: var(--orange); }
+      .pied .btn--jaune { color: var(--encre); }
+      .pied__in { position: relative; z-index: 1; }
+      .pied__gros { padding-bottom: 3.5rem; border-bottom: 2px solid rgb(255 248 241 / 0.2); }
+      .pied__titre { font-size: clamp(2.2rem, 1.3rem + 3.6vw, 4.2rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1; margin-bottom: 2rem; }
+      .pied .btn--jaune { background: var(--fond); color: var(--encre); border-color: var(--jaune); box-shadow: none; }
+      .pied .btn--jaune:hover { color: var(--encre); box-shadow: none; }
+      .btn--contour { background: transparent; border-color: var(--fond); box-shadow: none; }
+      .pied__cols { display: grid; grid-template-columns: 1.2fr 1.2fr 1fr 1fr; gap: 2rem; padding-top: 3rem; }
+      .pied__t { font-weight: 700; color: #e9a283; margin-bottom: 0.6rem; }
+      .pied ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
+      .pied__legal { margin: 3rem 0 0; font-size: var(--t-sm); opacity: 0.6; }
+      @media (max-width: 860px) { .pied__cols { grid-template-columns: 1fr 1fr; } }
+      @media (max-width: 520px) { .pied__cols { grid-template-columns: 1fr; } }
+
+      .barre-mobile { display: none; }
+      @media (max-width: 760px) {
+        .barre-mobile {
+          display: grid;
+          grid-template-columns: 1fr 1.3fr;
+          gap: 0.6rem;
+          position: fixed;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 40;
+          padding: 0.7rem var(--gutter) calc(0.8rem + env(safe-area-inset-bottom));
+          background: var(--fond);
+          border-top: 1px solid var(--bord);
+        }
+        .barre-mobile .btn { min-height: 3rem; padding-inline: 0.5rem; }
+      }
+    </style>
+  </body>
+</html>

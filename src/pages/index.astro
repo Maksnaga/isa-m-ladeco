@@ -1,0 +1,312 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import ProjetCarte from '../components/ProjetCarte.astro';
+import { getPrestations, getProjets, getSettings, getTemoignages } from '../lib/content';
+
+const s = await getSettings();
+const projets = await getProjets();
+const prestations = await getPrestations();
+const avis = await getTemoignages();
+
+const choisis = (projets.filter((p) => p.misEnAvant).length ? projets.filter((p) => p.misEnAvant) : projets).slice(0, 6);
+const interieur = projets.find((p) => p.categorie === 'interieur');
+const meuble = projets.find((p) => p.categorie === 'meuble');
+const mots = s.accroche.split(' ');
+
+const bandeau = ['Rénovation', 'Aménagement', 'Plans 3D', 'Suivi de chantier', 'Relooking de meubles', 'Conseil couleurs'];
+const etapes = [
+  { t: 'On se parle', d: 'Vous me présentez votre projet par téléphone ou via le formulaire. Gratuit et sans engagement.', c: 'var(--rose)' },
+  { t: 'Je viens chez vous', d: 'Je découvre les lieux, vos habitudes et votre budget, et je vous propose la bonne formule.', c: 'var(--jaune)' },
+  { t: 'Je dessine le projet', d: 'Plans, vues 3D, couleurs et matériaux : vous validez tout avant les travaux.', c: 'var(--menthe)' },
+  { t: 'On passe aux travaux', d: 'Je coordonne les artisans et je suis le chantier jusqu’à la fin.', c: 'var(--lilas)' },
+];
+const couleursTarifs = ['var(--jaune)', 'var(--rose)', 'var(--menthe)', 'var(--lilas)'];
+---
+
+<Base>
+  <!-- ===== HERO ===== -->
+  <section class="wrap hero" data-hero>
+    <div class="hero__txt">
+      <p class="pastille hero__pastille">Isabelle Moiroux, décoratrice d’intérieur à Lille</p>
+      <h1 aria-label={s.accroche}>
+        {mots.map((m, i) => <span class="mot" style={`--i:${i}`} aria-hidden="true"><span>{m}</span></span>)}
+      </h1>
+      <p class="hero__sous">{s.sousAccroche}</p>
+      <div class="actions hero__actions">
+        <a href="/contact" class="btn">Prendre rendez-vous</a>
+        <a href="/realisations" class="btn btn--second">Voir mes réalisations</a>
+      </div>
+      <p class="hero__zones">J’interviens à {s.zones.join(', ')}.</p>
+    </div>
+
+    <div class="hero__visuel">
+      <span class="forme hero__f1" data-prof="18" aria-hidden="true"></span>
+      <span class="forme hero__f2" data-prof="-28" aria-hidden="true"></span>
+      <div class="hero__photo">
+        <Img photo={s.heroImage.url ? s.heroImage : (interieur?.couverture ?? s.heroImage)} ratio="4 / 5" eager sizes="(max-width: 860px) 100vw, 45vw" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BANDEAU DÉFILANT ===== -->
+  <div class="bandeau-cadre"><div class="bandeau" aria-label={`Mes services : ${bandeau.join(', ')}`}>
+    <div class="bandeau__piste" aria-hidden="true">
+      {[0, 1].map(() => (
+        <div class="bandeau__groupe">
+          {bandeau.map((b) => <span>{b}<i>✺</i></span>)}
+        </div>
+      ))}
+    </div>
+  </div></div>
+
+  <!-- ===== DEUX ENTRÉES ===== -->
+  <section class="section wrap" aria-labelledby="t-besoin">
+    <div class="entete">
+      <h2 id="t-besoin" class="apparait">Que souhaitez-vous faire&nbsp;?</h2>
+    </div>
+    <div class="besoins">
+      <a href="/prestations" class="besoin apparait" style="--c:var(--rose);--d:0">
+        {interieur && <Img photo={interieur.couverture} ratio="16 / 10" sizes="(max-width: 760px) 100vw, 50vw" />}
+        <span class="besoin__t">Rénover ou aménager mon intérieur</span>
+        <span class="besoin__d">Une pièce ou toute la maison : conseil, plans 3D ou projet clé en main avec suivi des travaux.</span>
+        <span class="besoin__lien">Voir les prestations et tarifs <i aria-hidden="true">→</i></span>
+      </a>
+      <a href="/realisations?type=meuble" class="besoin apparait" style="--c:var(--menthe);--d:1">
+        {meuble && <Img photo={meuble.couverture} ratio="16 / 10" sizes="(max-width: 760px) 100vw, 50vw" />}
+        <span class="besoin__t">Relooker un meuble</span>
+        <span class="besoin__d">Un meuble de famille ou chiné qui mérite une seconde vie : couleur, cannage, poignées, sur mesure.</span>
+        <span class="besoin__lien">Voir les meubles relookés <i aria-hidden="true">→</i></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== RÉALISATIONS ===== -->
+  <section class="section section--doux" aria-labelledby="t-real">
+    <div class="wrap">
+      <div class="entete">
+        <div>
+          <h2 id="t-real" class="apparait">Réalisations récentes</h2>
+          <p class="apparait" style="--d:1">Quelques projets menés à Lille, sur la côte d’Opale et au Havre.</p>
+        </div>
+        <a href="/realisations" class="btn btn--second apparait" style="--d:2">Toutes les réalisations</a>
+      </div>
+      <div class="grille">
+        {choisis.map((p, i) => <ProjetCarte projet={p} i={i} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ÉTAPES ===== -->
+  <section class="section wrap" aria-labelledby="t-etapes">
+    <div class="entete">
+      <div>
+        <h2 id="t-etapes" class="apparait">Comment ça se passe</h2>
+        <p class="apparait" style="--d:1">De votre premier message jusqu’à la fin des travaux.</p>
+      </div>
+    </div>
+    <ol class="etapes">
+      {etapes.map((e, i) => (
+        <li class="apparait" style={`--c:${e.c};--d:${i}`}>
+          <span class="etapes__n pop" style={`--d:${i + 2}`} aria-hidden="true">{i + 1}</span>
+          <h3>{e.t}</h3>
+          <p>{e.d}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- ===== TARIFS ===== -->
+  <section class="section section--lilas" aria-labelledby="t-tarifs">
+    <div class="wrap">
+      <div class="entete">
+        <div>
+          <h2 id="t-tarifs" class="apparait">Prestations et tarifs</h2>
+          <p class="apparait" style="--d:1">Plusieurs formules, selon l’aide dont vous avez besoin.</p>
+        </div>
+        <a href="/prestations" class="btn btn--second apparait" style="--d:2">Le détail des prestations</a>
+      </div>
+      <div class="formules">
+        {prestations.map((p, i) => (
+          <div class="formule apparait" style={`--c:${couleursTarifs[i % 4]};--d:${i}`}>
+            <h3>{p.titre}</h3>
+            {p.accroche && <p>{p.accroche}</p>}
+            {p.tarif && <p class="formule__prix">{p.tarif}</p>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {avis.length > 0 && (
+    <section class="section wrap">
+      <h2 class="apparait avis__titre">Ils m’ont fait confiance</h2>
+      <div class="avis">
+        {avis.slice(0, 3).map((a, i) => (
+          <blockquote class="apparait" style={`--d:${i}`}><p>« {a.citation} »</p>{a.auteur && <footer>{a.auteur}</footer>}</blockquote>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- ===== QUI SUIS-JE ===== -->
+  <section class="section wrap qui" aria-labelledby="t-qui">
+    <div class="qui__visuel apparait">
+      <Img photo={s.portrait} ratio="4 / 5" sizes="(max-width: 760px) 80vw, 30vw" />
+    </div>
+    <div>
+      <h2 id="t-qui" class="apparait">Bonjour, je suis Isabelle</h2>
+      <div class="prose apparait" style="--d:1" set:html={s.aproposHtml.split('</p>').slice(0, 2).join('</p>') + '</p>'} />
+      <a href="/a-propos" class="btn btn--second apparait" style="--d:2">En savoir plus sur moi</a>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Parallaxe douce des formes du hero au mouvement de la souris
+  const hero = document.querySelector<HTMLElement>('[data-hero]');
+  const formes = hero ? [...hero.querySelectorAll<HTMLElement>('[data-prof]')] : [];
+  const calme = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (hero && !calme && matchMedia('(pointer: fine)').matches) {
+    hero.addEventListener('pointermove', (e) => {
+      const r = hero.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      formes.forEach((f) => {
+        const p = Number(f.dataset.prof);
+        f.style.translate = `${x * p}px ${y * p}px`;
+      });
+    });
+  }
+</script>
+
+<style>
+  /* ----- Hero ----- */
+  .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; padding-block: clamp(1.5rem, 4vw, 3rem) clamp(4rem, 7vw, 6rem); }
+  .hero__pastille { animation: entre 0.7s var(--ressort) both; }
+  .hero h1 { margin: 1.4rem 0 1.6rem; }
+  .mot { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-right: 0.22em; }
+  .mot > span { display: inline-block; animation: monte 0.9s var(--ressort) both; animation-delay: calc(var(--i) * 90ms + 150ms); }
+  @keyframes monte { from { transform: translateY(110%); } }
+  @keyframes entre { from { opacity: 0; transform: translateY(-14px) scale(0.9); } }
+  .hero__sous { font-size: var(--t-lg); color: var(--texte-2); max-width: 30em; animation: entre 0.8s var(--doux-ease) 0.7s both; }
+  .hero__actions { margin-top: 2rem; animation: entre 0.8s var(--ressort) 0.85s both; }
+  .hero__zones { margin: 1.6rem 0 0; font-size: var(--t-sm); color: var(--texte-2); animation: entre 0.8s var(--doux-ease) 1s both; }
+
+  .hero__visuel { position: relative; padding: 0; }
+  .hero__photo {
+    position: relative;
+    z-index: 1;
+    margin: 0 2rem 2rem 0;
+    border-radius: var(--rayon);
+    overflow: hidden;
+    animation: photo 1.1s var(--doux-ease) 0.3s both;
+  }
+  .hero__photo :global(.img) { border-radius: 0; }
+  @keyframes photo { from { opacity: 0; transform: translateY(40px) scale(0.96); } }
+  .hero__visuel .forme { animation: surgit 0.9s var(--ressort) both; transition: translate 0.6s var(--doux-ease); }
+  @keyframes surgit { from { opacity: 0; transform: scale(0.85); } }
+  /* Deux aplats : un bloc terre cuite derrière la photo, un carré sauge devant */
+  .hero__visuel .forme { border: 0; }
+  .hero__f1 { inset: 3.5rem 0 0 3.5rem; background: var(--orange); animation-delay: 0.5s !important; }
+  .hero__f2 { width: 4rem; height: 4rem; left: -1.2rem; bottom: 4.5rem; z-index: 2; background: var(--encre); animation-delay: 0.8s !important; }
+
+  /* ----- Bandeau ----- */
+  .bandeau-cadre { overflow: clip; }
+  .bandeau { background: var(--encre); color: var(--fond); overflow: hidden; padding-block: 1rem; }
+  .bandeau__piste { display: flex; width: max-content; animation: defile 45s linear infinite; }
+  .bandeau:hover .bandeau__piste { animation-play-state: paused; }
+  .bandeau__groupe { display: flex; }
+  .bandeau span { display: inline-flex; align-items: center; gap: 2rem; padding-right: 2rem; font-size: clamp(1.05rem, 0.9rem + 0.6vw, 1.35rem); font-weight: 500; letter-spacing: 0; white-space: nowrap; }
+  .bandeau i { font-style: normal; color: var(--jaune); font-size: 0.8em; }
+  .bandeau span:nth-child(3n+2) i { color: var(--rose); }
+  .bandeau span:nth-child(3n) i { color: var(--menthe); }
+  @keyframes defile { to { transform: translateX(-50%); } }
+
+  /* ----- Deux entrées ----- */
+  .besoins { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .besoin {
+    display: grid;
+    gap: 0.6rem;
+    align-content: start;
+    background: var(--c);
+    border: 1px solid var(--bord);
+    border-radius: var(--rayon);
+    padding: 0.9rem 0.9rem 1.6rem;
+    text-decoration: none;
+    color: var(--encre);
+    box-shadow: none;
+    transition: transform 0.4s var(--ressort), box-shadow 0.4s var(--ressort), opacity 0.8s;
+  }
+  .besoin:hover { transform: translateY(-4px); box-shadow: 0 18px 36px -22px rgb(31 29 54 / 0.45); border-color: var(--encre); }
+  .besoin :global(.img) { margin-bottom: 0.6rem; }
+  .besoin__t, .besoin__d, .besoin__lien { padding-inline: 0.5rem; }
+  .besoin__t { font-size: clamp(1.5rem, 1.2rem + 0.9vw, 1.9rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .besoin__lien { font-weight: 700; margin-top: 0.4rem; color: var(--orange); }
+  .besoin__lien i { display: inline-block; font-style: normal; transition: transform 0.3s var(--ressort); }
+  .besoin:hover .besoin__lien i { transform: translateX(6px); }
+
+  /* ----- Réalisations ----- */
+  .section--doux { border-block: 0; }
+  .grille { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2rem; }
+
+  /* ----- Étapes ----- */
+  .etapes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .etapes li { border-top: 2px solid var(--encre); padding-top: 1.5rem; }
+  .etapes__n {
+    display: grid;
+    place-items: center;
+    width: auto;
+    height: auto;
+    place-items: start;
+    color: var(--orange);
+    font-size: 2.6rem !important;
+    line-height: 1;
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 1.1rem;
+  }
+  .etapes h3 { margin-bottom: 0.5rem; }
+  .etapes p { color: var(--texte-2); margin: 0; }
+
+  /* ----- Tarifs ----- */
+  .section--lilas { background: var(--encre); color: var(--fond); }
+  .section--lilas h2 { color: var(--fond); }
+  .section--lilas .btn--second { color: var(--fond); border-color: var(--fond); }
+  .section--lilas .btn--second:hover { background: var(--fond); color: var(--encre); }
+  .section--lilas .entete p { color: rgb(248 246 242 / 0.75); }
+  .formules { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.5rem; }
+  .formule { background: var(--blanc); color: var(--encre); border-radius: var(--rayon); padding: 1.8rem; display: flex; flex-direction: column; border-top: 4px solid var(--orange); transition: transform 0.35s var(--ressort), opacity 0.8s; }
+  .formule:hover { transform: translateY(-4px); }
+  .formule h3 { font-size: 1.5rem; margin-bottom: 0.8rem; }
+  .formule p { color: var(--texte-2); }
+  .formule__prix { margin: auto 0 0 !important; padding-top: 1rem; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.03em; color: var(--encre) !important; }
+
+  .avis__titre { margin-bottom: 2rem; }
+  .avis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .avis blockquote { margin: 0; background: var(--blanc); border-left: 3px solid var(--orange); padding: 1.5rem; }
+  .avis footer { color: var(--texte-2); font-size: var(--t-sm); }
+
+  /* ----- Qui suis-je ----- */
+  .qui { display: grid; grid-template-columns: 0.75fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+  .qui__visuel { position: relative; max-width: 26rem; }
+  .qui__visuel::before { content: ''; position: absolute; inset: 1.5rem -1.5rem -1.5rem 1.5rem; background: var(--menthe); z-index: -1; }
+  .qui__visuel { isolation: isolate; }
+  .qui h2 { margin-bottom: 1.2rem; }
+  .qui .prose { color: var(--texte-2); font-size: var(--t-lg); margin-bottom: 1.6rem; }
+
+  @media (max-width: 960px) {
+    .grille { grid-template-columns: 1fr 1fr; }
+    .etapes { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 760px) {
+    .hero, .besoins, .grille, .formules, .avis, .qui, .etapes { grid-template-columns: 1fr; }
+    .hero__visuel { order: -1; }
+    .hero__photo :global(.img) { aspect-ratio: 1 / 1 !important; }
+    .hero__f1 { inset: 1.5rem 0 0 1.5rem; }
+    .hero__photo { margin: 0 1rem 1rem 0; }
+    .hero__f2 { width: 3.5rem; height: 3.5rem; bottom: 2rem; left: -0.4rem; }
+    .qui__visuel { max-width: 18rem; }
+    .qui__visuel::before { inset: 1rem -1rem -1rem 1rem; }
+  }
+</style>

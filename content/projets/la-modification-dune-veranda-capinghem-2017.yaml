@@ -1,0 +1,22 @@
+titre: "La modification d’une véranda"
+categorie: interieur
+ville: "Capinghem"
+annee: 2017
+misEnAvant: false
+ordre: 72
+couverture:
+  image: /images/projets/la-modification-dune-veranda-capinghem-2017/couverture/image.jpg
+  alt: "La modification d’une véranda à Capinghem"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/la-modification-dune-veranda-capinghem-2017/galerie/0/image.jpg
+    alt: "La modification d’une véranda à Capinghem, photo 2"
+  - image: /images/projets/la-modification-dune-veranda-capinghem-2017/galerie/1/image.jpg
+    alt: "La modification d’une véranda à Capinghem, photo 3"
+  - image: /images/projets/la-modification-dune-veranda-capinghem-2017/galerie/2/image.jpg
+    alt: "La modification d’une véranda à Capinghem, photo 4"
+  - image: /images/projets/la-modification-dune-veranda-capinghem-2017/galerie/3/image.jpg
+    alt: "La modification d’une véranda à Capinghem, photo 5"
+  - image: /images/projets/la-modification-dune-veranda-capinghem-2017/galerie/4/image.jpg
+    alt: "La modification d’une véranda à Capinghem, photo 6"

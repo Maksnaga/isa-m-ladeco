@@ -1,0 +1,20 @@
+titre: "Une terrasse en bois"
+categorie: interieur
+ville: "La Madeleine"
+annee: 2013
+misEnAvant: false
+ordre: 71
+couverture:
+  image: /images/projets/une-terrasse-en-bois-la-madeleine-2013/couverture/image.jpg
+  alt: "Une terrasse en bois à La Madeleine"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/une-terrasse-en-bois-la-madeleine-2013/galerie/0/image.jpg
+    alt: "Une terrasse en bois à La Madeleine, photo 2"
+  - image: /images/projets/une-terrasse-en-bois-la-madeleine-2013/galerie/1/image.jpg
+    alt: "Une terrasse en bois à La Madeleine, photo 3"
+  - image: /images/projets/une-terrasse-en-bois-la-madeleine-2013/galerie/2/image.jpg
+    alt: "Une terrasse en bois à La Madeleine, photo 4"
+  - image: /images/projets/une-terrasse-en-bois-la-madeleine-2013/galerie/3/image.jpg
+    alt: "Une terrasse en bois à La Madeleine, photo 5"

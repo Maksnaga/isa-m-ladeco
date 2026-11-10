@@ -1,0 +1,22 @@
+titre: "Meuble de salon sur mesure"
+categorie: interieur
+ville: "Lille"
+annee: 2022
+misEnAvant: false
+ordre: 25
+couverture:
+  image: /images/projets/meuble-de-salon-sur-mesure-lille-2022/couverture/image.jpg
+  alt: "Meuble de salon sur mesure à Lille"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/meuble-de-salon-sur-mesure-lille-2022/galerie/0/image.jpg
+    alt: "Meuble de salon sur mesure à Lille, photo 2"
+  - image: /images/projets/meuble-de-salon-sur-mesure-lille-2022/galerie/1/image.jpg
+    alt: "Meuble de salon sur mesure à Lille, photo 3"
+  - image: /images/projets/meuble-de-salon-sur-mesure-lille-2022/galerie/2/image.jpg
+    alt: "Meuble de salon sur mesure à Lille, photo 4"
+  - image: /images/projets/meuble-de-salon-sur-mesure-lille-2022/galerie/3/image.jpg
+    alt: "Meuble de salon sur mesure à Lille, photo 5"
+  - image: /images/projets/meuble-de-salon-sur-mesure-lille-2022/galerie/4/image.jpg
+    alt: "Meuble de salon sur mesure à Lille, photo 6"

@@ -1,0 +1,24 @@
+titre: "Mezzanine appartement"
+categorie: interieur
+ville: "Lille"
+annee: 2020
+misEnAvant: false
+ordre: 36
+couverture:
+  image: /images/projets/mezzanine-appartement-lille-2020/couverture/image.jpg
+  alt: "Mezzanine appartement à Lille"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/mezzanine-appartement-lille-2020/galerie/0/image.jpg
+    alt: "Mezzanine appartement à Lille, photo 2"
+  - image: /images/projets/mezzanine-appartement-lille-2020/galerie/1/image.jpg
+    alt: "Mezzanine appartement à Lille, photo 3"
+  - image: /images/projets/mezzanine-appartement-lille-2020/galerie/2/image.jpg
+    alt: "Mezzanine appartement à Lille, photo 4"
+  - image: /images/projets/mezzanine-appartement-lille-2020/galerie/3/image.jpg
+    alt: "Mezzanine appartement à Lille, photo 5"
+  - image: /images/projets/mezzanine-appartement-lille-2020/galerie/4/image.jpg
+    alt: "Mezzanine appartement à Lille, photo 6"
+  - image: /images/projets/mezzanine-appartement-lille-2020/galerie/5/image.jpg
+    alt: "Mezzanine appartement à Lille, photo 7"

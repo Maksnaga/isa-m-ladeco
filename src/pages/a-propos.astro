@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import { getSettings } from '../lib/content';
+const s = await getSettings();
+---
+
+<Base title="Qui suis-je" description="Isabelle Moiroux, décoratrice d’intérieur à Lille.">
+  <section class="wrap apropos">
+    <div class="portrait"><Img photo={s.portrait} ratio="4 / 5" eager sizes="(max-width: 760px) 100vw, 40vw" /></div>
+    <div>
+      <h1>Qui suis-je&nbsp;?</h1>
+      <div class="prose" set:html={s.aproposHtml} />
+      <h2>Où j’interviens</h2>
+      <ul class="zones">{s.zones.map((z) => <li>{z}</li>)}</ul>
+      <div class="actions">
+        <a href="/contact" class="btn">Prendre rendez-vous</a>
+        <a href="/realisations" class="btn btn--second">Voir mes réalisations</a>
+      </div>
+    </div>
+  </section>
+
+  {s.presse.length > 0 && (
+    <section class="wrap presse" aria-labelledby="t-presse">
+      <h2 id="t-presse">On parle de moi</h2>
+      <ul>
+        {s.presse.map((a) => (
+          <li>
+            {a.url ? <a href={a.url} rel="noopener">{a.titre}</a> : a.titre}
+            {a.media && <span class="secondaire">, {a.media}</span>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+</Base>
+
+<style>
+  .portrait :global(.img) { border: 1px solid var(--bord); border-radius: var(--rayon); box-shadow: none; }
+  .apropos { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; padding-top: clamp(2rem, 5vw, 4rem); }
+  h1 { margin-bottom: 1.5rem; }
+  .prose { font-size: var(--t-lg); }
+  .apropos h2 { font-size: var(--t-h3); margin: 2rem 0 0.8rem; }
+  .zones { margin: 0 0 2rem; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .zones li { border: 1px solid var(--bord); border-radius: 3px; padding: 0.2rem 0.8rem; font-weight: 600; background: var(--menthe); }
+  .presse { margin-top: var(--section); }
+  .presse h2 { margin-bottom: 1rem; }
+  .presse ul { list-style: none; padding: 0; margin: 0; }
+  .presse li { padding: 0.9rem 0; border-bottom: 1px solid var(--bord); }
+  @media (max-width: 760px) { .apropos { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,18 @@
+titre: "Une cuisine avec verrière"
+categorie: interieur
+ville: "Paris 17e"
+annee: 2021
+misEnAvant: false
+ordre: 37
+couverture:
+  image: /images/projets/une-cuisine-avec-verriere-paris-17e-2021/couverture/image.jpg
+  alt: "Une cuisine avec verrière à Paris 17e"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/une-cuisine-avec-verriere-paris-17e-2021/galerie/0/image.jpg
+    alt: "Une cuisine avec verrière à Paris 17e, photo 2"
+  - image: /images/projets/une-cuisine-avec-verriere-paris-17e-2021/galerie/1/image.jpg
+    alt: "Une cuisine avec verrière à Paris 17e, photo 3"
+  - image: /images/projets/une-cuisine-avec-verriere-paris-17e-2021/galerie/2/image.jpg
+    alt: "Une cuisine avec verrière à Paris 17e, photo 4"

@@ -1,0 +1,50 @@
+---
+import Img from './Img.astro';
+import type { Projet } from '../lib/types';
+interface Props { projet: Projet; i?: number }
+const { projet, i = 0 } = Astro.props;
+const couleurs = ['var(--rose)', 'var(--jaune)', 'var(--menthe)', 'var(--lilas)', 'var(--orange)'];
+const c = couleurs[i % couleurs.length];
+---
+<a href={`/realisations/${projet.slug}`} class="carte apparait" style={`--c:${c};--d:${i % 3}`}>
+  <span class="carte__img">
+    <Img photo={projet.couverture} ratio="4 / 3" sizes="(max-width: 760px) 100vw, 33vw" />
+    <span class="carte__type">{projet.categorie === 'meuble' ? 'Meuble relooké' : 'Rénovation'}</span>
+  </span>
+  <span class="carte__corps">
+    <span class="carte__titre">{projet.titre}</span>
+    <span class="carte__lieu">{projet.ville}{projet.annee && `, ${projet.annee}`}</span>
+  </span>
+</a>
+
+<style>
+  .carte {
+    display: block;
+    text-decoration: none;
+    color: var(--encre);
+    background: var(--blanc);
+    border: 1px solid var(--bord);
+    border-radius: var(--rayon);
+    overflow: hidden;
+    transition: transform 0.35s var(--ressort), box-shadow 0.35s var(--ressort), opacity 0.8s, rotate 0.35s var(--ressort);
+  }
+  .carte:hover { transform: translateY(-4px); border-color: var(--encre); box-shadow: 0 18px 36px -22px rgb(31 29 54 / 0.45); box-shadow: none; }
+  .carte__img { display: block; position: relative; border-bottom: 1px solid var(--bord); }
+  .carte__img :global(.img) { border-radius: 0; }
+  .carte__img :global(img) { transition: transform 0.7s var(--doux-ease); }
+  .carte:hover .carte__img :global(img) { transform: scale(1.06); }
+  .carte__type {
+    position: absolute;
+    left: 0.8rem;
+    top: 0.8rem;
+    background: var(--blanc);
+    border: 0;
+    border-radius: 2px;
+    padding: 0.15rem 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .carte__corps { display: grid; gap: 0.3rem; padding: 1rem 1.1rem 1.2rem; }
+  .carte__titre { font-size: 1.25rem; font-weight: 650; line-height: 1.15; letter-spacing: -0.02em; }
+  .carte__lieu { font-size: var(--t-sm); color: var(--texte-2); }
+</style>

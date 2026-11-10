@@ -1,0 +1,28 @@
+titre: "L’entrée d’une maison"
+categorie: interieur
+ville: "Pérenchies"
+annee: 2020
+misEnAvant: false
+ordre: 43
+couverture:
+  image: /images/projets/lentree-dune-maison-perenchies-2020/couverture/image.jpg
+  alt: "L’entrée d’une maison à Pérenchies"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/lentree-dune-maison-perenchies-2020/galerie/0/image.jpg
+    alt: "L’entrée d’une maison à Pérenchies, photo 2"
+  - image: /images/projets/lentree-dune-maison-perenchies-2020/galerie/1/image.jpg
+    alt: "L’entrée d’une maison à Pérenchies, photo 3"
+  - image: /images/projets/lentree-dune-maison-perenchies-2020/galerie/2/image.jpg
+    alt: "L’entrée d’une maison à Pérenchies, photo 4"
+  - image: /images/projets/lentree-dune-maison-perenchies-2020/galerie/3/image.jpg
+    alt: "L’entrée d’une maison à Pérenchies, photo 5"
+  - image: /images/projets/lentree-dune-maison-perenchies-2020/galerie/4/image.jpg
+    alt: "L’entrée d’une maison à Pérenchies, photo 6"
+  - image: /images/projets/lentree-dune-maison-perenchies-2020/galerie/5/image.jpg
+    alt: "L’entrée d’une maison à Pérenchies, photo 7"
+  - image: /images/projets/lentree-dune-maison-perenchies-2020/galerie/6/image.jpg
+    alt: "L’entrée d’une maison à Pérenchies, photo 8"
+  - image: /images/projets/lentree-dune-maison-perenchies-2020/galerie/7/image.jpg
+    alt: "L’entrée d’une maison à Pérenchies, photo 9"

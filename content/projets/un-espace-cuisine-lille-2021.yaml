@@ -1,0 +1,24 @@
+titre: "Un espace cuisine"
+categorie: interieur
+ville: "Lille"
+annee: 2021
+misEnAvant: false
+ordre: 38
+couverture:
+  image: /images/projets/un-espace-cuisine-lille-2021/couverture/image.jpg
+  alt: "Un espace cuisine à Lille"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/un-espace-cuisine-lille-2021/galerie/0/image.jpg
+    alt: "Un espace cuisine à Lille, photo 2"
+  - image: /images/projets/un-espace-cuisine-lille-2021/galerie/1/image.jpg
+    alt: "Un espace cuisine à Lille, photo 3"
+  - image: /images/projets/un-espace-cuisine-lille-2021/galerie/2/image.jpg
+    alt: "Un espace cuisine à Lille, photo 4"
+  - image: /images/projets/un-espace-cuisine-lille-2021/galerie/3/image.jpg
+    alt: "Un espace cuisine à Lille, photo 5"
+  - image: /images/projets/un-espace-cuisine-lille-2021/galerie/4/image.jpg
+    alt: "Un espace cuisine à Lille, photo 6"
+  - image: /images/projets/un-espace-cuisine-lille-2021/galerie/5/image.jpg
+    alt: "Un espace cuisine à Lille, photo 7"

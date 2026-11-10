@@ -1,0 +1,18 @@
+titre: "Projet cuisine"
+categorie: interieur
+ville: "Lille"
+annee: 2023
+misEnAvant: false
+ordre: 19
+couverture:
+  image: /images/projets/projet-cuisine-lille-2023-2/couverture/image.jpg
+  alt: "Projet cuisine à Lille"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/projet-cuisine-lille-2023-2/galerie/0/image.jpg
+    alt: "Projet cuisine à Lille, photo 2"
+  - image: /images/projets/projet-cuisine-lille-2023-2/galerie/1/image.jpg
+    alt: "Projet cuisine à Lille, photo 3"
+  - image: /images/projets/projet-cuisine-lille-2023-2/galerie/2/image.jpg
+    alt: "Projet cuisine à Lille, photo 4"

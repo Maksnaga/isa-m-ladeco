@@ -1,0 +1,157 @@
+/* ============================================================
+   Isa M la Déco — identité « Pop »
+   Couleurs franches, typo grasse (Bricolage Grotesque), formes
+   géométriques et beaucoup de mouvement. Tout reste lisible :
+   le texte est toujours en encre indigo, jamais sur un fond qui
+   le rendrait illisible.
+   ============================================================ */
+
+@import '@fontsource-variable/bricolage-grotesque/standard.css';
+
+:root {
+  /* Palette pop */
+  /* Version sobre : une encre, un accent, des neutres chauds */
+  --encre: #1f1d36;      /* indigo très foncé : texte, contours, boutons */
+  --fond: #f8f6f2;
+  --orange: #c95f3a;     /* l'unique couleur d'accent : terre cuite */
+  --rose: #efe6df;       /* neutre chaud (fonds de blocs) */
+  --menthe: #e4eae5;     /* neutre vert-gris (fonds de blocs) */
+  --jaune: #e9dccb;      /* sable (étiquettes, survols) */
+  --lilas: #eeebe6;      /* gris chaud (section tarifs) */
+
+  /* Alias utilisés par les composants */
+  --texte: var(--encre);
+  --texte-2: #4f4c66;
+  --blanc: #ffffff;
+  --doux: #f0ece6;
+  --bord: rgb(27 26 58 / 0.14);
+  --canard: var(--encre);
+  --canard-fonce: #0e0d24;
+  --safran: var(--orange);
+  --safran-clair: var(--jaune);
+
+  --font: 'Bricolage Grotesque Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --titre: var(--font);
+
+  --t-sm: 0.9375rem;
+  --t-base: 1.0625rem;
+  --t-lg: 1.25rem;
+  --t-h3: 1.5rem;
+  --t-h2: clamp(2rem, 1.3rem + 2.4vw, 3.1rem);
+  --t-h1: clamp(2.6rem, 1.5rem + 4.6vw, 5.25rem);
+
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --max: 1240px;
+  --section: clamp(4.5rem, 9vw, 7.5rem);
+  --rayon: 4px;
+  --ombre: 4px 4px 0 var(--encre);
+  --ressort: cubic-bezier(0.34, 1.3, 0.64, 1);
+  --doux-ease: cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { overflow-x: clip; -webkit-text-size-adjust: 100%; scroll-padding-top: 6rem; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--encre);
+  font-family: var(--font);
+  font-size: var(--t-base);
+  font-variation-settings: 'opsz' 14;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--encre); text-underline-offset: 0.22em; text-decoration-thickness: 2px; text-decoration-color: var(--orange); }
+a:hover { text-decoration-color: var(--encre); }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 4px; }
+::selection { background: var(--jaune); color: var(--encre); }
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--titre);
+  font-weight: 650;
+  font-variation-settings: 'opsz' 72, 'wdth' 100;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+h1 { font-size: var(--t-h1); line-height: 1; letter-spacing: -0.03em; }
+h2 { font-size: var(--t-h2); }
+h3 { font-size: var(--t-h3); font-weight: 700; letter-spacing: -0.015em; line-height: 1.1; }
+p { margin: 0 0 1em; text-wrap: pretty; }
+
+.wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--section); position: relative; }
+.section--doux { background: var(--doux); }
+
+.entete { display: flex; justify-content: space-between; align-items: end; gap: 1rem 2rem; flex-wrap: wrap; margin-bottom: 3rem; }
+.entete p { color: var(--texte-2); max-width: 36em; margin: 1rem 0 0; font-size: var(--t-lg); }
+.secondaire { color: var(--texte-2); }
+
+/* Boutons « pop » : contour épais + ombre pleine qui s'écrase au clic */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3.25rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 2px;
+  background: var(--encre);
+  color: var(--fond);
+  font: 600 var(--t-base) / 1.1 var(--font);
+  text-decoration: none;
+  border: 1.5px solid var(--encre);
+  cursor: pointer;
+  transition: transform 0.25s var(--doux-ease), background 0.2s, border-color 0.2s, color 0.2s;
+}
+.btn:hover { transform: translateY(-2px); background: var(--orange); border-color: var(--orange); color: #fff; }
+.btn:active { transform: translateY(1px); }
+.btn--second { background: transparent; color: var(--encre); }
+.btn--second:hover { background: var(--encre); border-color: var(--encre); color: var(--fond); }
+.actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+/* Pastille d'information (qui / où) */
+.pastille {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.9rem 0.45rem 0.75rem;
+  border: 1px solid var(--bord);
+  border-radius: 2px;
+  background: var(--blanc);
+  font-weight: 600;
+  font-size: var(--t-sm);
+}
+.pastille::before { content: ''; width: 0.6rem; height: 0.6rem; background: var(--orange); }
+
+/* ---------- Animations d'apparition ---------- */
+.apparait { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--doux-ease), transform 0.9s var(--ressort); transition-delay: calc(var(--d, 0) * 90ms); }
+.apparait.vu { opacity: 1; transform: none; }
+.pop { opacity: 0; transform: scale(0.6); transition: opacity 0.5s, transform 0.8s var(--ressort); transition-delay: calc(var(--d, 0) * 90ms); }
+.pop.vu { opacity: 1; transform: none; }
+
+/* Formes géométriques décoratives */
+.forme { position: absolute; pointer-events: none; z-index: 0; border: 1.5px solid var(--encre); }
+.forme--rond { border-radius: 3px; }
+.forme--arche { border-radius: 999px 999px 0 0; }
+.forme--demi { border-radius: 0 0 999px 999px; }
+.forme--etoile { border: 0; clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+.flotte { animation: flotte 8s ease-in-out infinite; }
+.tourne { animation: tourne 40s linear infinite; }
+@keyframes flotte { 50% { translate: 0 -8px; } }
+@keyframes tourne { to { rotate: 360deg; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .apparait, .pop { opacity: 1; transform: none; transition: none; }
+  .flotte, .tourne { animation: none; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+}
+
+.skip { position: absolute; left: 1rem; top: -4rem; z-index: 200; background: var(--encre); color: #fff; padding: 0.7rem 1rem; }
+.skip:focus { top: 1rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.prose { max-width: 40em; }

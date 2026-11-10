@@ -1,0 +1,30 @@
+titre: "Rénovation d’un appartement"
+categorie: interieur
+ville: "Lille"
+annee: 2023
+misEnAvant: false
+ordre: 15
+couverture:
+  image: /images/projets/renovation-dun-appartement-lille-2023/couverture/image.jpg
+  alt: "Rénovation d’un appartement à Lille"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/renovation-dun-appartement-lille-2023/galerie/0/image.jpg
+    alt: "Rénovation d’un appartement à Lille, photo 2"
+  - image: /images/projets/renovation-dun-appartement-lille-2023/galerie/1/image.jpg
+    alt: "Rénovation d’un appartement à Lille, photo 3"
+  - image: /images/projets/renovation-dun-appartement-lille-2023/galerie/2/image.jpg
+    alt: "Rénovation d’un appartement à Lille, photo 4"
+  - image: /images/projets/renovation-dun-appartement-lille-2023/galerie/3/image.jpg
+    alt: "Rénovation d’un appartement à Lille, photo 5"
+  - image: /images/projets/renovation-dun-appartement-lille-2023/galerie/4/image.jpg
+    alt: "Rénovation d’un appartement à Lille, photo 6"
+  - image: /images/projets/renovation-dun-appartement-lille-2023/galerie/5/image.jpg
+    alt: "Rénovation d’un appartement à Lille, photo 7"
+  - image: /images/projets/renovation-dun-appartement-lille-2023/galerie/6/image.jpg
+    alt: "Rénovation d’un appartement à Lille, photo 8"
+  - image: /images/projets/renovation-dun-appartement-lille-2023/galerie/7/image.jpg
+    alt: "Rénovation d’un appartement à Lille, photo 9"
+  - image: /images/projets/renovation-dun-appartement-lille-2023/galerie/8/image.jpg
+    alt: "Rénovation d’un appartement à Lille, photo 10"

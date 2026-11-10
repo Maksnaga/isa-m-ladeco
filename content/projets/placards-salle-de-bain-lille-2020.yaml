@@ -1,0 +1,26 @@
+titre: "Placards salle de bain"
+categorie: interieur
+ville: "Lille"
+annee: 2020
+misEnAvant: false
+ordre: 35
+couverture:
+  image: /images/projets/placards-salle-de-bain-lille-2020/couverture/image.jpg
+  alt: "Placards salle de bain à Lille"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/placards-salle-de-bain-lille-2020/galerie/0/image.jpg
+    alt: "Placards salle de bain à Lille, photo 2"
+  - image: /images/projets/placards-salle-de-bain-lille-2020/galerie/1/image.jpg
+    alt: "Placards salle de bain à Lille, photo 3"
+  - image: /images/projets/placards-salle-de-bain-lille-2020/galerie/2/image.jpg
+    alt: "Placards salle de bain à Lille, photo 4"
+  - image: /images/projets/placards-salle-de-bain-lille-2020/galerie/3/image.jpg
+    alt: "Placards salle de bain à Lille, photo 5"
+  - image: /images/projets/placards-salle-de-bain-lille-2020/galerie/4/image.jpg
+    alt: "Placards salle de bain à Lille, photo 6"
+  - image: /images/projets/placards-salle-de-bain-lille-2020/galerie/5/image.jpg
+    alt: "Placards salle de bain à Lille, photo 7"
+  - image: /images/projets/placards-salle-de-bain-lille-2020/galerie/6/image.jpg
+    alt: "Placards salle de bain à Lille, photo 8"

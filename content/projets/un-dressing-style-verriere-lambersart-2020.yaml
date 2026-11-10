@@ -1,0 +1,20 @@
+titre: "Un dressing style verrière"
+categorie: interieur
+ville: "Lambersart"
+annee: 2020
+misEnAvant: false
+ordre: 44
+couverture:
+  image: /images/projets/un-dressing-style-verriere-lambersart-2020/couverture/image.jpg
+  alt: "Un dressing style verrière à Lambersart"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/un-dressing-style-verriere-lambersart-2020/galerie/0/image.jpg
+    alt: "Un dressing style verrière à Lambersart, photo 2"
+  - image: /images/projets/un-dressing-style-verriere-lambersart-2020/galerie/1/image.jpg
+    alt: "Un dressing style verrière à Lambersart, photo 3"
+  - image: /images/projets/un-dressing-style-verriere-lambersart-2020/galerie/2/image.jpg
+    alt: "Un dressing style verrière à Lambersart, photo 4"
+  - image: /images/projets/un-dressing-style-verriere-lambersart-2020/galerie/3/image.jpg
+    alt: "Un dressing style verrière à Lambersart, photo 5"

@@ -1,0 +1,26 @@
+titre: "La transformation d’une petite salle de douche"
+categorie: interieur
+ville: "Lille"
+annee: 2015
+misEnAvant: false
+ordre: 73
+couverture:
+  image: /images/projets/la-transformation-dune-petite-salle-de-douche-lille-2015/couverture/image.jpg
+  alt: "La transformation d’une petite salle de douche à Lille"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/la-transformation-dune-petite-salle-de-douche-lille-2015/galerie/0/image.jpg
+    alt: "La transformation d’une petite salle de douche à Lille, photo 2"
+  - image: /images/projets/la-transformation-dune-petite-salle-de-douche-lille-2015/galerie/1/image.jpg
+    alt: "La transformation d’une petite salle de douche à Lille, photo 3"
+  - image: /images/projets/la-transformation-dune-petite-salle-de-douche-lille-2015/galerie/2/image.jpg
+    alt: "La transformation d’une petite salle de douche à Lille, photo 4"
+  - image: /images/projets/la-transformation-dune-petite-salle-de-douche-lille-2015/galerie/3/image.jpg
+    alt: "La transformation d’une petite salle de douche à Lille, photo 5"
+  - image: /images/projets/la-transformation-dune-petite-salle-de-douche-lille-2015/galerie/4/image.jpg
+    alt: "La transformation d’une petite salle de douche à Lille, photo 6"
+  - image: /images/projets/la-transformation-dune-petite-salle-de-douche-lille-2015/galerie/5/image.jpg
+    alt: "La transformation d’une petite salle de douche à Lille, photo 7"
+  - image: /images/projets/la-transformation-dune-petite-salle-de-douche-lille-2015/galerie/6/image.jpg
+    alt: "La transformation d’une petite salle de douche à Lille, photo 8"

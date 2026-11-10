@@ -1,0 +1,30 @@
+titre: "La décoration d’une chambre"
+categorie: interieur
+ville: "Lille"
+annee: 2019
+misEnAvant: false
+ordre: 51
+couverture:
+  image: /images/projets/la-decoration-dune-chambre-lille-2019/couverture/image.jpg
+  alt: "La décoration d’une chambre à Lille"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/la-decoration-dune-chambre-lille-2019/galerie/0/image.jpg
+    alt: "La décoration d’une chambre à Lille, photo 2"
+  - image: /images/projets/la-decoration-dune-chambre-lille-2019/galerie/1/image.jpg
+    alt: "La décoration d’une chambre à Lille, photo 3"
+  - image: /images/projets/la-decoration-dune-chambre-lille-2019/galerie/2/image.jpg
+    alt: "La décoration d’une chambre à Lille, photo 4"
+  - image: /images/projets/la-decoration-dune-chambre-lille-2019/galerie/3/image.jpg
+    alt: "La décoration d’une chambre à Lille, photo 5"
+  - image: /images/projets/la-decoration-dune-chambre-lille-2019/galerie/4/image.jpg
+    alt: "La décoration d’une chambre à Lille, photo 6"
+  - image: /images/projets/la-decoration-dune-chambre-lille-2019/galerie/5/image.jpg
+    alt: "La décoration d’une chambre à Lille, photo 7"
+  - image: /images/projets/la-decoration-dune-chambre-lille-2019/galerie/6/image.jpg
+    alt: "La décoration d’une chambre à Lille, photo 8"
+  - image: /images/projets/la-decoration-dune-chambre-lille-2019/galerie/7/image.jpg
+    alt: "La décoration d’une chambre à Lille, photo 9"
+  - image: /images/projets/la-decoration-dune-chambre-lille-2019/galerie/8/image.jpg
+    alt: "La décoration d’une chambre à Lille, photo 10"

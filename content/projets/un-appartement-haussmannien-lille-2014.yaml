@@ -1,0 +1,30 @@
+titre: "Un appartement haussmannien"
+categorie: interieur
+ville: "Lille"
+annee: 2014
+misEnAvant: false
+ordre: 59
+couverture:
+  image: /images/projets/un-appartement-haussmannien-lille-2014/couverture/image.jpg
+  alt: "Un appartement haussmannien à Lille"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/un-appartement-haussmannien-lille-2014/galerie/0/image.jpg
+    alt: "Un appartement haussmannien à Lille, photo 2"
+  - image: /images/projets/un-appartement-haussmannien-lille-2014/galerie/1/image.jpg
+    alt: "Un appartement haussmannien à Lille, photo 3"
+  - image: /images/projets/un-appartement-haussmannien-lille-2014/galerie/2/image.jpg
+    alt: "Un appartement haussmannien à Lille, photo 4"
+  - image: /images/projets/un-appartement-haussmannien-lille-2014/galerie/3/image.jpg
+    alt: "Un appartement haussmannien à Lille, photo 5"
+  - image: /images/projets/un-appartement-haussmannien-lille-2014/galerie/4/image.jpg
+    alt: "Un appartement haussmannien à Lille, photo 6"
+  - image: /images/projets/un-appartement-haussmannien-lille-2014/galerie/5/image.jpg
+    alt: "Un appartement haussmannien à Lille, photo 7"
+  - image: /images/projets/un-appartement-haussmannien-lille-2014/galerie/6/image.jpg
+    alt: "Un appartement haussmannien à Lille, photo 8"
+  - image: /images/projets/un-appartement-haussmannien-lille-2014/galerie/7/image.jpg
+    alt: "Un appartement haussmannien à Lille, photo 9"
+  - image: /images/projets/un-appartement-haussmannien-lille-2014/galerie/8/image.jpg
+    alt: "Un appartement haussmannien à Lille, photo 10"

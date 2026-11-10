@@ -1,0 +1,16 @@
+titre: "Rénovation WC"
+categorie: interieur
+ville: "Lille"
+annee: 2024
+misEnAvant: true
+ordre: 6
+couverture:
+  image: /images/projets/renovation-wc-lille-2024/couverture/image.jpg
+  alt: "Rénovation WC à Lille"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/renovation-wc-lille-2024/galerie/0/image.jpg
+    alt: "Rénovation WC à Lille, photo 2"
+  - image: /images/projets/renovation-wc-lille-2024/galerie/1/image.jpg
+    alt: "Rénovation WC à Lille, photo 3"

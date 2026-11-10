@@ -1,0 +1,16 @@
+titre: "Papier peint panoramique"
+categorie: interieur
+ville: "Lille"
+annee: 2023
+misEnAvant: false
+ordre: 12
+couverture:
+  image: /images/projets/papier-peint-panoramique-lille-2023/couverture/image.jpg
+  alt: "Papier peint panoramique à Lille"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/papier-peint-panoramique-lille-2023/galerie/0/image.jpg
+    alt: "Papier peint panoramique à Lille, photo 2"
+  - image: /images/projets/papier-peint-panoramique-lille-2023/galerie/1/image.jpg
+    alt: "Papier peint panoramique à Lille, photo 3"

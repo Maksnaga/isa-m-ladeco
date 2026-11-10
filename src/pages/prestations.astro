@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import { getPrestations, getSettings } from '../lib/content';
+const prestations = await getPrestations();
+const s = await getSettings();
+const faq = [
+  { q: 'Le premier rendez-vous est-il payant ?', r: 'Le premier échange, par téléphone ou par e-mail, est gratuit et sans engagement. Il permet de voir ensemble quelle formule correspond à votre projet.' },
+  { q: 'Où intervenez-vous ?', r: `${s.zones.join(', ')}.` },
+  { q: 'Dois-je passer par vos artisans ?', r: 'Non. Je peux vous recommander des artisans avec qui je travaille depuis longtemps, mais je peux aussi travailler avec les vôtres et vous aider à comparer leurs devis.' },
+  { q: 'Pouvez-vous relooker un seul meuble ?', r: 'Oui. Envoyez-moi une photo du meuble via le formulaire de contact et je vous donne un premier avis.' },
+];
+---
+
+<Base title="Prestations et tarifs" description="Conseil à domicile, projet sur plans 3D ou projet clé en main avec suivi de chantier, à Lille et alentours.">
+  <section class="wrap haut">
+    <h1>Prestations et tarifs</h1>
+    <p class="secondaire">Choisissez selon l’aide dont vous avez besoin. Vous hésitez&nbsp;? Contactez-moi, on en parle ensemble.</p>
+  </section>
+
+  <section class="wrap formules">
+    {prestations.map((p, i) => (
+      <article class:list={['formule', 'apparait', { 'formule--complet': /cl[ée] en main/i.test(p.titre) }]} style={`--d:${i};--c:${['var(--rose)', 'var(--menthe)', 'var(--encre)'][i % 3]}`}>
+        <h2>{p.titre}</h2>
+        {p.accroche && <p class="secondaire">{p.accroche}</p>}
+        {p.tarif && <p class="formule__prix">{p.tarif}</p>}
+        {p.inclus.length > 0 && (
+          <>
+            <p class="formule__t">Ce qui est compris</p>
+            <ul>{p.inclus.map((x) => <li>{x}</li>)}</ul>
+          </>
+        )}
+        <a href={`/contact?prestation=${encodeURIComponent(p.titre)}`} class:list={['btn', { 'btn--second': !/cl[ée] en main/i.test(p.titre) }]}>Choisir cette formule</a>
+      </article>
+    ))}
+  </section>
+
+  <section class="wrap faq" aria-labelledby="t-faq">
+    <h2 id="t-faq">Questions fréquentes</h2>
+    <div>
+      {faq.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.r}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .haut { padding-top: clamp(2rem, 5vw, 4rem); padding-bottom: 2.5rem; }
+  .haut h1 { margin-bottom: 0.8rem; }
+  .formules { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.5rem; align-items: stretch; }
+  .formule { position: relative; background: var(--blanc); border: 1px solid var(--bord); border-radius: var(--rayon); box-shadow: none; padding: 2rem; display: flex; flex-direction: column; }
+  .formule--complet { background: var(--jaune); box-shadow: none; }
+  .formule--complet li, .formule--complet .secondaire { color: var(--encre); }
+  .formule h2 { font-size: 1.9rem; margin-bottom: 0.5rem; }
+  .formule__prix { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; margin: 0.5rem 0 1.5rem; }
+  .formule__t { font-weight: 600; margin-bottom: 0.5rem; }
+  .formule ul { list-style: none; margin: 0 0 2rem; padding: 0; display: grid; gap: 0.6rem; }
+  .formule li { padding-left: 1.7rem; position: relative; color: var(--texte-2); }
+  .formule li::before { content: '✓'; position: absolute; left: 0; color: var(--canard); font-weight: 700; }
+  .formule .btn { margin-top: auto; }
+
+  .faq { margin-top: var(--section); display: grid; grid-template-columns: 1fr 2fr; gap: 2rem 4rem; }
+  details { border-bottom: 1px solid var(--bord); }
+  details:first-child { border-top: 1px solid var(--bord); }
+  summary { cursor: pointer; padding: 1.1rem 0; font-weight: 700; font-size: 1.3rem; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; display: grid; place-items: center; width: 2rem; height: 2rem; flex: none; border-radius: 3px; border: 1px solid var(--bord); background: var(--jaune); color: var(--encre); font-size: 1.2rem; transition: rotate 0.3s var(--ressort); font-size: 1.5rem; line-height: 1; }
+  details[open] summary::after { rotate: 45deg; background: var(--rose); }
+  details p { color: var(--texte-2); margin: 0 0 1.2rem; max-width: 40em; }
+
+  @media (max-width: 900px) { .formules, .faq { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,38 @@
+titre: "Rénovation appartement"
+categorie: interieur
+ville: "Croix"
+annee: 2025
+misEnAvant: true
+ordre: 2
+couverture:
+  image: /images/projets/renovation-appartement-croix-2025/couverture/image.jpg
+  alt: "Rénovation appartement à Croix"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/renovation-appartement-croix-2025/galerie/0/image.jpg
+    alt: "Rénovation appartement à Croix, photo 2"
+  - image: /images/projets/renovation-appartement-croix-2025/galerie/1/image.jpg
+    alt: "Rénovation appartement à Croix, photo 3"
+  - image: /images/projets/renovation-appartement-croix-2025/galerie/2/image.jpg
+    alt: "Rénovation appartement à Croix, photo 4"
+  - image: /images/projets/renovation-appartement-croix-2025/galerie/3/image.jpg
+    alt: "Rénovation appartement à Croix, photo 5"
+  - image: /images/projets/renovation-appartement-croix-2025/galerie/4/image.jpg
+    alt: "Rénovation appartement à Croix, photo 6"
+  - image: /images/projets/renovation-appartement-croix-2025/galerie/5/image.jpg
+    alt: "Rénovation appartement à Croix, photo 7"
+  - image: /images/projets/renovation-appartement-croix-2025/galerie/6/image.jpg
+    alt: "Rénovation appartement à Croix, photo 8"
+  - image: /images/projets/renovation-appartement-croix-2025/galerie/7/image.jpg
+    alt: "Rénovation appartement à Croix, photo 9"
+  - image: /images/projets/renovation-appartement-croix-2025/galerie/8/image.jpg
+    alt: "Rénovation appartement à Croix, photo 10"
+  - image: /images/projets/renovation-appartement-croix-2025/galerie/9/image.jpg
+    alt: "Rénovation appartement à Croix, photo 11"
+  - image: /images/projets/renovation-appartement-croix-2025/galerie/10/image.jpg
+    alt: "Rénovation appartement à Croix, photo 12"
+  - image: /images/projets/renovation-appartement-croix-2025/galerie/11/image.jpg
+    alt: "Rénovation appartement à Croix, photo 13"
+  - image: /images/projets/renovation-appartement-croix-2025/galerie/12/image.jpg
+    alt: "Rénovation appartement à Croix, photo 14"

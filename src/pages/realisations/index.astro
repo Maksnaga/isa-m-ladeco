@@ -1,0 +1,67 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjetCarte from '../../components/ProjetCarte.astro';
+import { getProjets } from '../../lib/content';
+const projets = await getProjets();
+const filtres = [
+  { v: 'tout', l: 'Tous les projets' },
+  { v: 'interieur', l: 'Rénovations et aménagements' },
+  { v: 'meuble', l: 'Meubles relookés' },
+];
+---
+
+<Base title="Réalisations" description="Rénovations, aménagements et meubles relookés à Lille, au Touquet et au Havre.">
+  <section class="wrap haut">
+    <h1>Réalisations</h1>
+    <p class="secondaire">Cliquez sur un projet pour voir les photos, l’avant / après et ce qui a été fait.</p>
+    <div class="filtres" role="group" aria-label="Filtrer les projets">
+      {filtres.map((f, i) => (
+        <button data-f={f.v} aria-pressed={i === 0 ? 'true' : 'false'}>{f.l}</button>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap grille">
+    {projets.map((p, i) => <div data-cat={p.categorie}><ProjetCarte projet={p} i={i} /></div>)}
+  </section>
+  <p class="wrap vide" hidden data-vide>Aucun projet dans cette catégorie pour l’instant.</p>
+</Base>
+
+<script>
+  const btns = document.querySelectorAll<HTMLButtonElement>('.filtres button');
+  const items = document.querySelectorAll<HTMLElement>('[data-cat]');
+  const vide = document.querySelector<HTMLElement>('[data-vide]')!;
+  const appliquer = (f: string) => {
+    btns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.f === f)));
+    let n = 0;
+    items.forEach((it) => { it.hidden = f !== 'tout' && it.dataset.cat !== f; if (!it.hidden) n++; });
+    vide.hidden = n > 0;
+  };
+  btns.forEach((b) => b.addEventListener('click', () => appliquer(b.dataset.f!)));
+  const t = new URLSearchParams(location.search).get('type');
+  if (t) appliquer(t);
+</script>
+
+<style>
+  .haut { padding-top: clamp(2rem, 5vw, 4rem); padding-bottom: 2rem; }
+  .haut h1 { margin-bottom: 0.8rem; }
+  .filtres { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .filtres button {
+    font: 500 var(--t-base) var(--font);
+    padding: 0.6rem 1rem;
+    min-height: 2.75rem;
+    border-radius: 3px;
+    border: 1px solid var(--bord);
+    background: var(--blanc);
+    color: var(--encre);
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.3s var(--ressort), background 0.2s;
+  }
+  .filtres button:hover { background: var(--jaune); transform: translateY(-2px); }
+  .filtres button[aria-pressed='true'] { background: var(--encre); color: var(--fond); box-shadow: none; }
+  .grille { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2rem; }
+  .vide { color: var(--texte-2); }
+  @media (max-width: 960px) { .grille { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .grille { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,22 @@
+titre: "Une bibliothèque sur mesure"
+categorie: interieur
+ville: "Lambersart"
+annee: 2021
+misEnAvant: false
+ordre: 27
+couverture:
+  image: /images/projets/une-bibliotheque-sur-mesure-lambersart-2021/couverture/image.jpg
+  alt: "Une bibliothèque sur mesure à Lambersart"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/une-bibliotheque-sur-mesure-lambersart-2021/galerie/0/image.jpg
+    alt: "Une bibliothèque sur mesure à Lambersart, photo 2"
+  - image: /images/projets/une-bibliotheque-sur-mesure-lambersart-2021/galerie/1/image.jpg
+    alt: "Une bibliothèque sur mesure à Lambersart, photo 3"
+  - image: /images/projets/une-bibliotheque-sur-mesure-lambersart-2021/galerie/2/image.jpg
+    alt: "Une bibliothèque sur mesure à Lambersart, photo 4"
+  - image: /images/projets/une-bibliotheque-sur-mesure-lambersart-2021/galerie/3/image.jpg
+    alt: "Une bibliothèque sur mesure à Lambersart, photo 5"
+  - image: /images/projets/une-bibliotheque-sur-mesure-lambersart-2021/galerie/4/image.jpg
+    alt: "Une bibliothèque sur mesure à Lambersart, photo 6"

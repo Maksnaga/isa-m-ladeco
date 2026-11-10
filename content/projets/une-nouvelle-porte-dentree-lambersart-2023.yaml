@@ -1,0 +1,14 @@
+titre: "Une nouvelle porte d’entrée"
+categorie: interieur
+ville: "Lambersart"
+annee: 2023
+misEnAvant: false
+ordre: 16
+couverture:
+  image: /images/projets/une-nouvelle-porte-dentree-lambersart-2023/couverture/image.jpg
+  alt: "Une nouvelle porte d’entrée à Lambersart"
+avant: {}
+apres: {}
+galerie:
+  - image: /images/projets/une-nouvelle-porte-dentree-lambersart-2023/galerie/0/image.jpg
+    alt: "Une nouvelle porte d’entrée à Lambersart, photo 2"
